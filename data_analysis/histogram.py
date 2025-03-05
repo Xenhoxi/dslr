@@ -9,9 +9,6 @@ def main() -> None:
     try:
         dataset = Dataset(sys.argv[1])
         set = dataset.get_dataset()
-        print(set)
-        print(set.columns)
-        print(set.index)
 
         features_name = dataset.clean_data_describe().columns
         ncols = round(math.sqrt(len(features_name)))
