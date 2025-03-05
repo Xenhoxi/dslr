@@ -20,6 +20,7 @@ def main() -> None:
         for a in ax.ravel():
             a.axis("off")
 
+        color_map = {'Ravenclaw':'Green', 'Slytherin':'Orange', 'Gryffindor':'Red', 'Hufflepuff':'Blue'}
         i = 0
         all_house = set['Hogwarts House'].unique()
         for feature_name in features_name:
@@ -28,12 +29,14 @@ def main() -> None:
             for house in all_house:
                 data_by_house = set.loc[set['Hogwarts House'] == house]
                 feature = data_by_house[feature_name]
-                ax[x,y].hist(feature)
+                ax[x,y].hist(feature, color=color_map[house], alpha=0.5, edgecolor='black', label=house)
                 ax[x,y].title.set_text(feature_name)
                 ax[x,y].axis("on")
             i += 1
+        fig.legend(all_house, bbox_to_anchor=(0.9, 0.25), fontsize=24)
 
         fig.savefig("histogram.png")
+        plt.show()
     except (KeyboardInterrupt) as err:
         pass
 
