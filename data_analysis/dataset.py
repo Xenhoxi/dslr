@@ -9,7 +9,6 @@ class Dataset:
             self.__dataset = self.read_dataset(path)
         else:
             self.__dataset = pd.DataFrame()
-    
 
     def read_dataset(self, path: str) -> pd.DataFrame:
         try:
@@ -19,7 +18,6 @@ class Dataset:
             print("Unexpected error, impossible to read the dataset check the given path !")
             return (pd.DataFrame())
 
-
     # Select all collums of a specific types
     # Remove all na row
     # reindex de 0 a n-1 toutes les row du tableau
@@ -28,7 +26,6 @@ class Dataset:
         set = float_set.dropna()
         set.reset_index(drop=True)
         return set
-
 
     def display_statistics(self):
         set = self.clean_data_describe()
@@ -49,15 +46,12 @@ class Dataset:
             stats.loc['Max', col] = self.max_of_col(set[col])
         print(f"{stats}")
 
-
     def get_dataset(self):
         return self.__dataset
-
 
     def display_set(self):
         if not self.__dataset.empty:
             print(self.__dataset)
-
 
     def min_of_col(self, col: pd.DataFrame) -> float:
         if not col.empty:
@@ -68,7 +62,6 @@ class Dataset:
             if i < min:
                 min = i
         return min
-
 
     def max_of_col(self, col: pd.DataFrame) -> float:
         if not col.empty:
