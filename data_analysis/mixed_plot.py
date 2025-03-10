@@ -9,8 +9,7 @@ import math
 def main() -> None:
 	try:
 		dataset = Dataset(sys.argv[1])
-		x_plots = ['Astronomy', 'Herbology', 'Defense Against the Dark Arts', 'Ancient Runes']
-		y_plots = x_plots
+		y_plots = x_plots = ['Astronomy', 'Herbology', 'Defense Against the Dark Arts', 'Ancient Runes']
 		data_set = dataset.get_dataset()
 		subplot_place = 0
 		plt.figure(figsize=(29, 18))
