@@ -17,6 +17,7 @@ def main() -> None:
                 scatter_plot(features_name[x], features_name[0], test)
             else:
                 scatter_plot(features_name[x], features_name[x + 1], test)
+        plt.legend(test['Hogwarts House'].unique(), bbox_to_anchor=(0.9, 0.25), fontsize=24)
         plt.savefig("scatter_plot.png")
         plt.show()
     except KeyboardInterrupt as msg:

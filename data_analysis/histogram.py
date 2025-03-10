@@ -18,8 +18,6 @@ def main() -> None:
         # for a in ax.ravel():
         #     a.axis("off")
 
-        color_map = {'Ravenclaw':'Green', 'Slytherin':'Orange', 'Gryffindor':'Red', 'Hufflepuff':'Blue'}
-        all_house = set['Hogwarts House'].unique()
         for x in range(len(features_name)):
             plt.subplot(3, 5, x + 1)
             histogram_plot(features_name[x], set)
@@ -31,7 +29,7 @@ def main() -> None:
         #         ax[x, y].hist(feature, color=color_map[house], alpha=0.5, edgecolor='black', label=house)
         #         ax[x, y].title.set_text(features_name[i])
         #         ax[x, y].axis("on")
-        # fig.legend(all_house, bbox_to_anchor=(0.9, 0.25), fontsize=24)
+        plt.legend(set['Hogwarts House'].unique(), bbox_to_anchor=(0.9, 0.25), fontsize=24)
 
         # fig.savefig("histogram.png")
         plt.savefig("histogram.png")

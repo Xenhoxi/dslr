@@ -23,7 +23,8 @@ def main() -> None:
 				else:
 					scatter_plot(x_plots[x], y_plots[y], data_set)
 				print("passage: ", x)
-				subplot_place += 1
+				subplot_place += 1        
+		plt.legend(data_set['Hogwarts House'].unique(), bbox_to_anchor=(0.9, 0.25), fontsize=24)
 		plt.savefig("mixed_test.png")
 		plt.show()
 	except (KeyboardInterrupt) as msg:
