@@ -21,6 +21,7 @@ def main() -> None:
         for x in range(len(features_name)):
             plt.subplot(3, 5, x + 1)
             histogram_plot(features_name[x], set)
+            plt.title(features_name[x])
         #     x = math.floor(i / ncols)
         #     y = math.floor(i % ncols)
         #     for house in all_house:
@@ -44,7 +45,6 @@ def histogram_plot(feature, data_set):
     for house in all_house:
         data_by_house = data_set.loc[data_set['Hogwarts House'] == house]
         f_feature = data_by_house[feature]
-        plt.title(feature)
         plt.hist(f_feature, color=color_map[house], alpha=0.5, edgecolor='black', label=house)
 
 
