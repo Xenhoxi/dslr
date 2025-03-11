@@ -16,6 +16,7 @@ def main() -> None:
         print(data_set)
         subplot_place = 1
         plt.figure(figsize=(29, 18))
+        # data_set.reset_index(drop=True, inplace=True)
         # setdata = pd.plotting.scatter_matrix(data_set)
 
         for x in range(len(features)):
@@ -26,11 +27,13 @@ def main() -> None:
                 else:
                     scatter_plot(features[x], features[y], data_set)
                 subplot_place += 1
-                plt.xticks([])
-                plt.yticks([])
-                plt.tight_layout()
+                if x % 13 != 0:
+                    plt.xticks([])
+                if y % 13 == 12:
+                    plt.yticks([])
+        plt.subplots_adjust(wspace=0, hspace=0)
         plt.legend(data_set['Hogwarts House'].unique(), bbox_to_anchor=(0.9, 0.25), fontsize=24)
-        plt.savefig("mixed_test.png")
+        plt.savefig("pair_plot.png")
         plt.show()
     except (KeyboardInterrupt) as msg:
         print(msg)
