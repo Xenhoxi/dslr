@@ -1,7 +1,6 @@
 from dataset import Dataset
 import matplotlib.pyplot as plt
 import pandas as pd
-import seaborn as sns
 from scatter_plot import scatter_plot
 from histogram import histogram_plot
 import sys
@@ -14,13 +13,9 @@ def main() -> None:
         features = dataset.clean_data_describe().columns
         print(features)
         data_set = dataset.get_dataset()
-        # data_set.reset_index(drop=True, inplace=True)
-        print(data_set)
+        # print(data_set)
         subplot_place = 1
-        # g = sns.pairplot(data_set)
-        # g.savefig("sns_pair_plot.png")
         plt.figure(figsize=(29, 18))
-
         for x in range(len(features)):
             for y in range(len(features)):
                 plt.subplot(13, 13, subplot_place)

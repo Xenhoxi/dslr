@@ -1,7 +1,6 @@
 from dataset import Dataset
 import matplotlib.pyplot as plt
 import sys
-import math
 
 
 def main() -> None:
