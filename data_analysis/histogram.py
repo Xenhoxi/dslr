@@ -2,7 +2,6 @@ from dataset import Dataset
 import matplotlib.pyplot as plt
 import numpy as np
 import sys
-import math
 
 
 def main() -> None:
@@ -12,27 +11,12 @@ def main() -> None:
 
         plt.figure(figsize=(29, 18))
         features_name = dataset.clean_data_describe().columns
-        # ncols = round(math.sqrt(len(features_name)))
-        # fig, ax = plt.subplots(ncols=ncols, nrows=ncols, figsize=(29, 18))
-
-        # for a in ax.ravel():
-        #     a.axis("off")
-
         for x in range(len(features_name)):
-            plt.subplot(3, 5, x + 1)
+            plt.subplot(4, 4, x + 1)
             histogram_plot(features_name[x], set)
             plt.title(features_name[x])
-        #     x = math.floor(i / ncols)
-        #     y = math.floor(i % ncols)
-        #     for house in all_house:
-        #         data_by_house = set.loc[set['Hogwarts House'] == house]
-        #         feature = data_by_house[features_name[i]]
-        #         ax[x, y].hist(feature, color=color_map[house], alpha=0.5, edgecolor='black', label=house)
-        #         ax[x, y].title.set_text(features_name[i])
-        #         ax[x, y].axis("on")
-        plt.legend(set['Hogwarts House'].unique(), bbox_to_anchor=(0.9, 0.25), fontsize=24)
-
-        # fig.savefig("histogram.png")
+        plt.subplot(4, 4, x + 1)
+        plt.legend(set['Hogwarts House'].unique(), bbox_to_anchor=(1, 0.55), fontsize=20)
         plt.savefig("histogram.png")
         plt.show()
     except (KeyboardInterrupt) as err:
